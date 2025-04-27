@@ -112,6 +112,6 @@
   },
   "include": ["stories", "src", "stories"],
   "files": [
-    "src/custom.d.ts" // 型定義ファイルを追加
+    "src/types/custom.d.ts" // 型定義ファイルを追加
   ]
 }
