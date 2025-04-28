@@ -1,6 +1,15 @@
 import { Meta, StoryObj } from "@storybook/html";
 import buttonHTML from "../src/components/button/button.html?raw";
 
+// ボタンコンポーネントのプロパティ型定義
+interface ButtonProps {
+  label: string;
+  size?: "small" | "medium" | "large";
+  variant?: "primary" | "secondary" | "danger" | "success";
+  disabled?: boolean;
+  onClick?: () => void;
+}
+
 // HTMLボタンコンポーネントを生成する関数
 const createButton = (args: ButtonProps): HTMLElement => {
   const {
@@ -29,15 +38,6 @@ const createButton = (args: ButtonProps): HTMLElement => {
 
   return button;
 };
-
-// ボタンコンポーネントのプロパティ型定義
-interface ButtonProps {
-  label: string;
-  size?: "small" | "medium" | "large";
-  variant?: "primary" | "secondary" | "danger" | "success";
-  disabled?: boolean;
-  onClick?: () => void;
-}
 
 // メタデータ
 const meta: Meta<ButtonProps> = {
