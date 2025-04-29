@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/html";
 import buttonHTML from "../src/components/button/button.html?raw";
+import { userEvent, within } from "@storybook/test";
 
 // ボタンコンポーネントのプロパティ型定義
 interface ButtonProps {
@@ -88,6 +89,10 @@ export const Primary: Story = {
   args: {
     label: "Primary Button",
     variant: "primary",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByTestId("btn"));
   },
 };
 

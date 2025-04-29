@@ -17,6 +17,7 @@
     "@storybook/addon-a11y": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-viewport": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
     "@storybook/html": "^8.6.12",
     "@storybook/html-vite": "^8.6.12",
