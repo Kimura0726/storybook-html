@@ -13,10 +13,7 @@ if (!fs.existsSync(REPORT_DIR)) {
 }
 
 // 型定義の拡張
-type A11yTestFunction = (
-  storyId: string,
-  tags?: string[]
-) => Promise<{
+type A11yTestFunction = (storyId: string) => Promise<{
   results: any;
   reportPath: string;
 }>;
@@ -26,14 +23,22 @@ export const test = base.extend<{
   runA11yTest: A11yTestFunction;
 }>({
   runA11yTest: async ({ page }, use) => {
-    const runTest: A11yTestFunction = async (storyId, tags) => {
+    const runTest: A11yTestFunction = async (storyId) => {
       await page.goto(`http://localhost:6006/iframe.html?id=${storyId}`);
 
       // テスト結果取得
       let axeBuilder = new AxeBuilder({ page });
-      if (tags && tags.length > 0) {
-        axeBuilder = axeBuilder.withTags(tags);
-      }
+
+      // アクセシビリティルール指定
+      axeBuilder = axeBuilder.withTags([
+        "best-practice",
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "wcag22aa",
+      ]);
+
       const results = await axeBuilder.analyze();
 
       // レポートファイル名を生成（テスト名と日時）
