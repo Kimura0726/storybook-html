@@ -32,8 +32,6 @@ export const test = base.extend<{
       // アクセシビリティルール指定
       axeBuilder = axeBuilder.withTags([
         "best-practice",
-        "wcag2a",
-        "wcag2aa",
         "wcag21a",
         "wcag21aa",
         "wcag22aa",
