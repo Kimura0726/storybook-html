@@ -94,6 +94,12 @@ export const Primary: Story = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByTestId("btn"));
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/BNZPbPm8GMsetG9RnFCkHV/Design-System-5-3--%E3%82%B3%E3%83%94%E3%83%BC-?node-id=4303-2342&t=IrkXmNjUXtJMDMuE-1",
+    },
+  },
 };
 
 // セカンダリボタン
